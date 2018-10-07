@@ -1,6 +1,7 @@
-import dredd_hooks as hooks
-from enum import Enum
 import json
+from enum import Enum
+
+import dredd_hooks as hooks
 
 
 @hooks.before_all
