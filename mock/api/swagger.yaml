@@ -1,0 +1,252 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a sample."
+  version: "1.0.0"
+  title: "Sandbox"
+host: "localhost:8080"
+basePath: "/v1"
+tags:
+- name: "users"
+schemes:
+- "http"
+paths:
+  /users:
+    get:
+      tags:
+      - "users"
+      summary: "Lists users."
+      description: ""
+      operationId: "getUsers"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "sort"
+        in: "query"
+        required: false
+        type: "string"
+        enum:
+        - "userId"
+        - "username"
+        - "userStatus"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Users"
+      x-swagger-router-controller: "Users"
+    post:
+      tags:
+      - "users"
+      summary: "Create a new user."
+      description: ""
+      operationId: "createUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/WriteUser"
+      responses:
+        201:
+          description: "Create"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+      x-swagger-router-controller: "Users"
+  /users/{userId}:
+    get:
+      tags:
+      - "users"
+      summary: "Get the user."
+      description: ""
+      operationId: "getUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/User"
+        404:
+          description: "Not Found"
+      x-swagger-router-controller: "Users"
+    put:
+      tags:
+      - "users"
+      summary: "Update the user."
+      description: ""
+      operationId: "updateUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "body"
+        name: "body"
+        description: "Updated user object"
+        required: true
+        schema:
+          $ref: "#/definitions/WriteUser"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+      x-swagger-router-controller: "Users"
+    delete:
+      tags:
+      - "users"
+      summary: "Delete the user."
+      description: ""
+      operationId: "deleteUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        204:
+          description: "No Content"
+        404:
+          description: "Not Found"
+      x-swagger-router-controller: "Users"
+definitions:
+  WriteUser:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    example:
+      firstName: "firstName"
+      lastName: "lastName"
+      password: "password"
+      userStatus: 0
+      phone: "phone"
+      email: "email"
+      username: "username"
+  User:
+    type: "object"
+    properties:
+      userId:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    example:
+      firstName: "firstName"
+      lastName: "lastName"
+      userStatus: 6
+      phone: "phone"
+      userId: 0
+      email: "email"
+      username: "username"
+  Users:
+    type: "object"
+    properties:
+      users:
+        type: "array"
+        items:
+          $ref: "#/definitions/User"
+    example:
+      users:
+      - firstName: "firstName"
+        lastName: "lastName"
+        userStatus: 6
+        phone: "phone"
+        userId: 0
+        email: "email"
+        username: "username"
+      - firstName: "firstName"
+        lastName: "lastName"
+        userStatus: 6
+        phone: "phone"
+        userId: 0
+        email: "email"
+        username: "username"
+  Errors:
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/Error"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+parameters:
+  userId:
+    name: "userId"
+    in: "path"
+    required: true
+    type: "integer"
+    format: "int64"
+responses:
+  NoContent:
+    description: "No Content"
+  BadRequest:
+    description: "Bad Request"
+    schema:
+      $ref: "#/definitions/Errors"
+  NotFound:
+    description: "Not Found"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
