@@ -51,7 +51,7 @@ def my_after_all_hook(transactions):
 
 
 class Operation(Enum):
-    createUser = "users > /v1 / users > Create a new user. > 201 > application / json"
+    createUser = "users > /v1/users > Create a new user. > 201 > application/json"
     getUsers = "users > /v1/users > Lists users. > 200 > application/json"
     getUser = "users > /v1/users/{user_id} > Get the user. > 200 > application/json"
     updateUser = "users > /v1/users/{user_id} > Update the user. > 200 > application/json"
