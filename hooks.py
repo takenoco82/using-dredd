@@ -47,3 +47,9 @@ def my_after_each(transaction):
 def my_after_all_hook(transactions):
     """called after whole test run."""
     pass
+
+
+# 特定のAPIのみスキップする
+@hooks.before("users > /v1/users/{user_id} > Get the user. > 200 > application/json")
+def skip_get_user(transaction):
+    transaction['skip'] = True
