@@ -1,5 +1,5 @@
 dry-run: null
-hookfiles: null
+hookfiles: hooks.py
 language: python
 sandbox: false
 # APIサーバを起動する必要がないのでコメントアウト
