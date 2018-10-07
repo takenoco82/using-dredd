@@ -1,5 +1,6 @@
 import dredd_hooks as hooks
 from enum import Enum
+import json
 
 
 @hooks.before_all
@@ -62,3 +63,24 @@ class Operation(Enum):
 @hooks.before(Operation.getUser.value)
 def skip_get_user(transaction):
     transaction['skip'] = True
+
+
+response_stash = {}
+
+
+# ワークフロー（POSTで登録したデータのidを使ってPUTで更新）
+@hooks.after(Operation.createUser.value)
+def create_user(transaction):
+    print(transaction.keys())
+    response = transaction['real'].get('body')
+    response_stash[Operation.createUser.value] = response
+
+
+@hooks.before(Operation.updateUser.value)
+def update_user(transaction):
+    created_user = json.loads(response_stash[Operation.createUser.value])
+    user_id = created_user['user_id']
+    # /v1/users/42 → /v1/users/{POSTで登録した際のuser_id}
+    # NOTE: エンドポイントを直接置換するのでswagger.yamlにてx-exampleで指定した値と合わせる必要がある
+    # NOTE: dreddを実行した際には置換前のURLが表示されるので注意！
+    transaction['fullPath'] = transaction['fullPath'].replace('42', str(user_id))

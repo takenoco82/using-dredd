@@ -128,7 +128,7 @@ parameters:
     required: true
     type: "integer"
     format: "int64"
-    x-example: 1
+    x-example: 42
 responses:
   NoContent:
     description: "No Content"

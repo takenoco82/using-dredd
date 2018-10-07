@@ -3,7 +3,7 @@
 
 /**
  * Create a new user.
- * 
+ *
  *
  * body WriteUser Created user object
  * returns User
@@ -31,9 +31,9 @@ exports.createUser = function(body) {
 
 /**
  * Delete the user.
- * 
  *
- * user_id Long 
+ *
+ * user_id Long
  * no response value expected for this operation
  **/
 exports.deleteUser = function(user_id) {
@@ -45,9 +45,9 @@ exports.deleteUser = function(user_id) {
 
 /**
  * Get the user.
- * 
  *
- * user_id Long 
+ *
+ * user_id Long
  * returns User
  **/
 exports.getUser = function(user_id) {
@@ -73,7 +73,7 @@ exports.getUser = function(user_id) {
 
 /**
  * Lists users.
- * 
+ *
  *
  * sort String  (optional)
  * returns Users
@@ -111,9 +111,9 @@ exports.getUsers = function(sort) {
 
 /**
  * Update the user.
- * 
  *
- * user_id Long 
+ *
+ * user_id Long
  * body WriteUser Updated user object
  * returns User
  **/
@@ -125,7 +125,7 @@ exports.updateUser = function(user_id,body) {
   "last_name" : "last_name",
   "user_status" : 6,
   "phone" : "phone",
-  "user_id" : 0,
+  "user_id" : user_id,
   "email" : "email",
   "username" : "username"
 };
