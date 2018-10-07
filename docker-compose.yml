@@ -11,7 +11,7 @@ services:
     volumes:
       - ./swagger.yaml:/usr/share/nginx/html/swagger.yaml
     environment:
-      API_URL: swagger.yaml
+      API_URL: http://localhost:8081/swagger.yaml
 
   swagger-editor:
     image: swaggerapi/swagger-editor:latest
