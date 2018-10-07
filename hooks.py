@@ -72,7 +72,6 @@ response_stash = {}
 # ワークフロー（POSTで登録したデータのidを使ってPUTで更新）
 @hooks.after(Operation.createUser.value)
 def create_user(transaction):
-    print(transaction.keys())
     response = transaction['real'].get('body')
     response_stash[Operation.createUser.value] = response
 
