@@ -51,16 +51,16 @@ paths:
         required: false
         type: "string"
         enum:
-        - "userId"
+        - "user_id"
         - "username"
-        - "userStatus"
+        - "user_status"
       responses:
         200:
           description: "OK"
           schema:
             $ref: "#/definitions/Users"
       x-swagger-router-controller: "Users"
-  /users/{userId}:
+  /users/{user_id}:
     get:
       tags:
       - "users"
@@ -70,7 +70,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - $ref: "#/parameters/userId"
+      - $ref: "#/parameters/user_id"
       responses:
         200:
           description: "OK"
@@ -88,7 +88,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - $ref: "#/parameters/userId"
+      - $ref: "#/parameters/user_id"
       - name: "body"
         in: "body"
         description: "Updated user object"
@@ -114,7 +114,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - $ref: "#/parameters/userId"
+      - $ref: "#/parameters/user_id"
       responses:
         204:
           $ref: "#/responses/NoContent"
@@ -122,8 +122,8 @@ paths:
           $ref: "#/responses/NotFound"
       x-swagger-router-controller: "Users"
 parameters:
-  userId:
-    name: "userId"
+  user_id:
+    name: "user_id"
     in: "path"
     required: true
     type: "integer"
@@ -143,9 +143,9 @@ definitions:
     properties:
       username:
         type: "string"
-      firstName:
+      first_name:
         type: "string"
-      lastName:
+      last_name:
         type: "string"
       email:
         type: "string"
@@ -153,44 +153,44 @@ definitions:
         type: "string"
       phone:
         type: "string"
-      userStatus:
+      user_status:
         type: "integer"
         format: "int32"
         description: "User Status"
     example:
-      firstName: "firstName"
-      lastName: "lastName"
+      first_name: "first_name"
+      last_name: "last_name"
       password: "password"
-      userStatus: 0
+      user_status: 0
       phone: "phone"
       email: "email"
       username: "username"
   User:
     type: "object"
     properties:
-      userId:
+      user_id:
         type: "integer"
         format: "int64"
       username:
         type: "string"
-      firstName:
+      first_name:
         type: "string"
-      lastName:
+      last_name:
         type: "string"
       email:
         type: "string"
       phone:
         type: "string"
-      userStatus:
+      user_status:
         type: "integer"
         format: "int32"
         description: "User Status"
     example:
-      firstName: "firstName"
-      lastName: "lastName"
-      userStatus: 6
+      first_name: "first_name"
+      last_name: "last_name"
+      user_status: 6
       phone: "phone"
-      userId: 0
+      user_id: 0
       email: "email"
       username: "username"
   Users:

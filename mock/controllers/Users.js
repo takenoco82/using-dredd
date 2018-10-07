@@ -15,8 +15,8 @@ module.exports.createUser = function createUser (req, res, next) {
 };
 
 module.exports.deleteUser = function deleteUser (req, res, next) {
-  var userId = req.swagger.params['userId'].value;
-  Users.deleteUser(userId)
+  var user_id = req.swagger.params['user_id'].value;
+  Users.deleteUser(user_id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -26,8 +26,8 @@ module.exports.deleteUser = function deleteUser (req, res, next) {
 };
 
 module.exports.getUser = function getUser (req, res, next) {
-  var userId = req.swagger.params['userId'].value;
-  Users.getUser(userId)
+  var user_id = req.swagger.params['user_id'].value;
+  Users.getUser(user_id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -48,9 +48,9 @@ module.exports.getUsers = function getUsers (req, res, next) {
 };
 
 module.exports.updateUser = function updateUser (req, res, next) {
-  var userId = req.swagger.params['userId'].value;
+  var user_id = req.swagger.params['user_id'].value;
   var body = req.swagger.params['body'].value;
-  Users.updateUser(userId,body)
+  Users.updateUser(user_id,body)
     .then(function (response) {
       utils.writeJson(res, response);
     })

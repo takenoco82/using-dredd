@@ -12,11 +12,11 @@ exports.createUser = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "firstName" : "firstName",
-  "lastName" : "lastName",
-  "userStatus" : 6,
+  "first_name" : "first_name",
+  "last_name" : "last_name",
+  "user_status" : 6,
   "phone" : "phone",
-  "userId" : 0,
+  "user_id" : 0,
   "email" : "email",
   "username" : "username"
 };
@@ -33,10 +33,10 @@ exports.createUser = function(body) {
  * Delete the user.
  * 
  *
- * userId Long 
+ * user_id Long 
  * no response value expected for this operation
  **/
-exports.deleteUser = function(userId) {
+exports.deleteUser = function(user_id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -47,18 +47,18 @@ exports.deleteUser = function(userId) {
  * Get the user.
  * 
  *
- * userId Long 
+ * user_id Long 
  * returns User
  **/
-exports.getUser = function(userId) {
+exports.getUser = function(user_id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "firstName" : "firstName",
-  "lastName" : "lastName",
-  "userStatus" : 6,
+  "first_name" : "first_name",
+  "last_name" : "last_name",
+  "user_status" : 6,
   "phone" : "phone",
-  "userId" : 0,
+  "user_id" : 0,
   "email" : "email",
   "username" : "username"
 };
@@ -83,19 +83,19 @@ exports.getUsers = function(sort) {
     var examples = {};
     examples['application/json'] = {
   "users" : [ {
-    "firstName" : "firstName",
-    "lastName" : "lastName",
-    "userStatus" : 6,
+    "first_name" : "first_name",
+    "last_name" : "last_name",
+    "user_status" : 6,
     "phone" : "phone",
-    "userId" : 0,
+    "user_id" : 0,
     "email" : "email",
     "username" : "username"
   }, {
-    "firstName" : "firstName",
-    "lastName" : "lastName",
-    "userStatus" : 6,
+    "first_name" : "first_name",
+    "last_name" : "last_name",
+    "user_status" : 6,
     "phone" : "phone",
-    "userId" : 0,
+    "user_id" : 0,
     "email" : "email",
     "username" : "username"
   } ]
@@ -113,19 +113,19 @@ exports.getUsers = function(sort) {
  * Update the user.
  * 
  *
- * userId Long 
+ * user_id Long 
  * body WriteUser Updated user object
  * returns User
  **/
-exports.updateUser = function(userId,body) {
+exports.updateUser = function(user_id,body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "firstName" : "firstName",
-  "lastName" : "lastName",
-  "userStatus" : 6,
+  "first_name" : "first_name",
+  "last_name" : "last_name",
+  "user_status" : 6,
   "phone" : "phone",
-  "userId" : 0,
+  "user_id" : 0,
   "email" : "email",
   "username" : "username"
 };
