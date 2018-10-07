@@ -21,8 +21,8 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "body"
-        in: "body"
+      - in: "body"
+        name: "body"
         description: "Created user object"
         required: true
         schema:
@@ -46,8 +46,8 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "sort"
-        in: "query"
+      - in: "query"
+        name: "sort"
         required: false
         type: "string"
         enum:
@@ -89,8 +89,8 @@ paths:
       - "application/json"
       parameters:
       - $ref: "#/parameters/user_id"
-      - name: "body"
-        in: "body"
+      - in: "body"
+        name: "body"
         description: "Updated user object"
         required: true
         schema:
@@ -123,8 +123,8 @@ paths:
       x-swagger-router-controller: "Users"
 parameters:
   user_id:
-    name: "user_id"
     in: "path"
+    name: "user_id"
     required: true
     type: "integer"
     format: "int64"
