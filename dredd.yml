@@ -9,6 +9,9 @@ init: false
 custom: {}
 names: false
 only: []
+# 特定のAPIのみ実行する場合に設定する。指定する値は --names で確認できる
+# only:
+#   - users > /v1/users > Create a new user. > 201 > application/json
 reporter: []
 output: []
 header: []
