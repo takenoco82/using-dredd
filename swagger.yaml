@@ -171,7 +171,6 @@ definitions:
     properties:
       user_id:
         type: "integer"
-        format: "int64"
       username:
         type: "string"
       first_name:
@@ -184,7 +183,6 @@ definitions:
         type: "string"
       user_status:
         type: "integer"
-        format: "int32"
         description: "User Status"
     example:
       first_name: "first_name"
