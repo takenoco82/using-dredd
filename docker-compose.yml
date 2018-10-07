@@ -12,6 +12,8 @@ services:
       - ./swagger.yaml:/usr/share/nginx/html/swagger.yaml
     environment:
       API_URL: http://localhost:8081/swagger.yaml
+    networks:
+     - my_networks
 
   swagger-editor:
     image: swaggerapi/swagger-editor:latest
@@ -20,3 +22,8 @@ services:
       - "8082:8080"
     container_name: swagger-editor
     hostname: swagger-editor
+    networks:
+     - my_networks
+
+networks:
+  my_networks:
