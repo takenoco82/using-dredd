@@ -77,6 +77,7 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+        x-example: 1
       responses:
         200:
           description: "OK"
@@ -99,6 +100,7 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+        x-example: 1
       - in: "body"
         name: "body"
         description: "Updated user object"
@@ -131,6 +133,7 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+        x-example: 1
       responses:
         204:
           description: "No Content"
@@ -170,7 +173,6 @@ definitions:
     properties:
       user_id:
         type: "integer"
-        format: "int64"
       username:
         type: "string"
       first_name:
@@ -183,7 +185,6 @@ definitions:
         type: "string"
       user_status:
         type: "integer"
-        format: "int32"
         description: "User Status"
     example:
       first_name: "first_name"
@@ -232,12 +233,13 @@ definitions:
       message:
         type: "string"
 parameters:
-  user_id:
+  PathUserId:
     name: "user_id"
     in: "path"
     required: true
     type: "integer"
     format: "int64"
+    x-example: 1
 responses:
   NoContent:
     description: "No Content"
