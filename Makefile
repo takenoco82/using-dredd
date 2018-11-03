@@ -13,7 +13,7 @@ stop:
 
 .PHONY: codegen
 codegen:
-	./generate_mock.sh
+	cd ./tools/codegen && ./generate_mock.sh
 
 .PHONY: clean
 clean:
