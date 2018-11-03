@@ -34,5 +34,5 @@ hooks-worker-term-retry: 500
 hooks-worker-handler-host: 127.0.0.1
 hooks-worker-handler-port: 61321
 config: ./dredd.yml
-blueprint: swagger.yaml
+blueprint: ./docs/swagger.yaml
 endpoint: 'http://localhost:8080'

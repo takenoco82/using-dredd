@@ -19,7 +19,7 @@ services:
     container_name: swagger-ui
     hostname: swagger-ui
     volumes:
-      - ./swagger.yaml:/usr/share/nginx/html/swagger.yaml
+      - ./docs/swagger.yaml:/usr/share/nginx/html/swagger.yaml
     environment:
       API_URL: http://localhost:8081/swagger.yaml
     networks:
