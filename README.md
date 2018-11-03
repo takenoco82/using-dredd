@@ -21,8 +21,7 @@ pip install dredd_hooks
 
 ### モックサーバの起動
 ``` sh
-cd mock
-npm start
+make run
 ```
 
 ### API仕様の確認
@@ -32,6 +31,5 @@ open http://localhost:8080/docs
 
 ### Dreddの実行
 ``` sh
-cd {プロジェクトルート}
-dredd
+make dredd
 ```
