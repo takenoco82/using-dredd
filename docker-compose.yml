@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  sandbox:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    container_name: sandbox
+    hostname: sandbox
+    networks:
+     - my_networks
+
   swagger-ui:
     image: swaggerapi/swagger-ui:latest
     restart: always
