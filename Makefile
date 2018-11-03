@@ -1,6 +1,6 @@
 .PHONY: dredd
 dredd:
-	dredd
+	cd ./tools/dredd && dredd
 
 .PHONY: run
 run: stop
