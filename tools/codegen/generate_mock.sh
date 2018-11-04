@@ -1,3 +1,5 @@
+#!/bin/bash -eu
+
 PROJECT_ROOT=`pwd | xargs dirname | xargs dirname`
 
 docker run --rm \
